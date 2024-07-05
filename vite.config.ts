@@ -12,7 +12,7 @@ export default defineConfig({
         content: 'src/content/content.ts',
       },
       output:{
-        entryFileNames: '[name].js',
+        entryFileNames: 'assets/[name].js',
       }
     }
   }
