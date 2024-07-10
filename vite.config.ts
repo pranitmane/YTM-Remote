@@ -8,11 +8,17 @@ export default defineConfig({
     rollupOptions:{
       input:{
         main: 'src/main.tsx',
-        background: 'src/background/background.ts',
         content: 'src/content/content.ts',
+        index: 'index.html'
       },
       output:{
-        entryFileNames: 'assets/[name].js',
+        entryFileNames: (chunk) => {
+          if (chunk.name === 'index.html') {
+            return '[name].html'
+          } else {
+            return 'assets/[name].js'
+          }
+        }
       }
     }
   }
